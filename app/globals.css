@@ -1,5 +1,6 @@
 :root {
   --red: rgb(255, 0, 0);
+  --white: #FFFFFF;
 }
 
 * {
@@ -9,7 +10,6 @@
 }
 
 body {
-  /* background-image: url("/background.jpg"); */
   background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.369)),
     url('/background.jpg');
   width: 100vw;
@@ -21,4 +21,5 @@ body {
 
 a {
   text-decoration: none;
+  color: white;
 }
