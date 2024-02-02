@@ -1,6 +1,7 @@
 :root {
   --red: rgb(255, 0, 0);
   --white: #FFFFFF;
+  --border-radius: 30px;
 }
 
 * {
