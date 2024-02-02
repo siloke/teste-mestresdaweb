@@ -24,3 +24,10 @@ a {
   text-decoration: none;
   color: white;
 }
+
+.close-icon {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+}
