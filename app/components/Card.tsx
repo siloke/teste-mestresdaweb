@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import YellowStar from "./YellowStar";
 import CloseIcon from "./CloseIcon";
+import { device } from "../breakpoints";
 
 const CardContainer = styled.div`
     background: linear-gradient(to left, rgb(255, 0, 0), rgba(128, 0, 0));
@@ -11,6 +12,10 @@ const CardContainer = styled.div`
     width: fit-content;
     border-radius: var(--border-radius);
     margin: 50px;
+
+    @media ${device.tablet} {
+        flex-direction: column;
+    }
 `
 const CardExpand = styled(motion.div)`
     width: 333px;
@@ -22,7 +27,7 @@ const CardExpand = styled(motion.div)`
     align-items: center;
     position: relative;
 `
-const ExpandWrapper= styled.div`
+const ExpandWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -35,6 +40,9 @@ const CardImage = styled.div`
     height: 439px;
     width: 289px;
     border-radius: var(--border-radius);
+    @media ${device.tablet} {
+        width: 100%;
+    }
 `
 const ImageDescription = styled(motion.div)`
     background: linear-gradient(to right, rgb(255, 0, 0), rgba(128, 0, 0, 30.2%));
@@ -72,12 +80,12 @@ const DetailsText = styled.p`
 const Card = (): JSX.Element => {
     const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
-    const toggleExpand = () : void => {
+    const toggleExpand = (): void => {
         setIsExpanded(!isExpanded);
     }
 
     return (
-        <CardContainer> 
+        <CardContainer>
             <CardImage>
                 {!isExpanded &&
                     <ImageDescription >
