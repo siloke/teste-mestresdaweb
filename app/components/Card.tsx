@@ -9,9 +9,9 @@ import { device } from "../breakpoints";
 const CardContainer = styled.div`
     background: linear-gradient(to left, rgb(255, 0, 0), rgba(128, 0, 0));
     display: flex;
+    margin: 0 100px;
     width: fit-content;
     border-radius: var(--border-radius);
-    margin: 50px;
 
     @media ${device.tablet} {
         flex-direction: column;
@@ -77,7 +77,11 @@ const DetailsText = styled.p`
     cursor: pointer;
 `
 
-const Card = (): JSX.Element => {
+interface PropsCard {
+    func?: any
+}
+
+const Card = ({}: PropsCard): JSX.Element => {
     const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
     const toggleExpand = (): void => {
