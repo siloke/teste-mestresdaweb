@@ -32,3 +32,9 @@ a {
   bottom: 20px;
   cursor: pointer;
 }
+
+/* .swiper-wrapper,
+.swiper-backface-hidden,
+.swiper-slide {
+  transform: none !important;
+} */

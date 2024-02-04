@@ -81,7 +81,7 @@ interface PropsCard {
     func?: any
 }
 
-const Card = ({}: PropsCard): JSX.Element => {
+const Card = ({ }: PropsCard): JSX.Element => {
     const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
     const toggleExpand = (): void => {
@@ -120,9 +120,9 @@ const Card = ({}: PropsCard): JSX.Element => {
                             <YellowStar />
                         </div>
                     </ExpandWrapper>
-                    <div onClick={toggleExpand}>
+                    <span onClick={toggleExpand}>
                         <CloseIcon />
-                    </div>
+                    </span>
                 </CardExpand>
             }
         </CardContainer >
