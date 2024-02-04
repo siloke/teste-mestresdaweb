@@ -79,7 +79,8 @@ const DetailsText = styled.p`
 `
 
 const BackgroundExpand = styled.p`
-    backdrop-filter: blur(20px); 
+    backdrop-filter: blur(100px);
+    border-radius: var(--border-radius); 
     z-index: 1; 
     display: flex; 
     justify-content: center; 
@@ -89,8 +90,6 @@ const BackgroundExpand = styled.p`
     bottom: 0;
     left: 0;
     right: 0;
-    transform: none;
-
 `
 
 interface PropsCard {

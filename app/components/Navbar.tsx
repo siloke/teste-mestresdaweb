@@ -5,6 +5,7 @@ import { useState } from "react";
 import { device } from "../breakpoints";
 import HamburguerIcon from "./HamburguerIcon";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const NavbarStyled = styled.div`
     width: 100vw;
@@ -68,12 +69,12 @@ const Navbar = (): JSX.Element => {
             <Container>
                 <Logo />
                 <ListStyled>
-                    <li><a href="">Personagens</a></li>
-                    <li><a href="">Filmes</a></li>
-                    <li><a href="">HQs</a></li>
+                    <li><Link href="/personagens">Personagens</Link></li>
+                    <li><Link href="/filmes">Filmes</Link></li>
+                    <li><Link href="/HQs">HQs</Link></li>
                     <Wrapper>
                         <img src="/profile-picture.png" alt="" />
-                        <li><a href="">Sair</a></li>
+                        <li><Link href="/">Sair</Link></li>
                     </Wrapper>
                 </ListStyled>
                 <HamburguerMenu onClick={toggleMenu}>
@@ -82,9 +83,9 @@ const Navbar = (): JSX.Element => {
             </Container>
             {isToggled &&
                 <MobileList animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ ease: "linear", delay: 0.3 }}>
-                    <MobileListItem><a href="">Personagens</a></MobileListItem>
-                    <MobileListItem><a href="">Filmes</a></MobileListItem>
-                    <MobileListItem><a href="">HQs</a></MobileListItem>
+                    <MobileListItem><Link href="/personagens">Personagens</Link></MobileListItem>
+                    <MobileListItem><Link href="/filmes">Filmes</Link></MobileListItem>
+                    <MobileListItem><Link href="/HQs">HQs</Link></MobileListItem>
                 </MobileList>
             }
         </NavbarStyled>

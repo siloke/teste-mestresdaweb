@@ -33,8 +33,14 @@ a {
   cursor: pointer;
 }
 
+.teste {
+  transform: none !important;
+}
+
+
 /* .swiper-wrapper,
 .swiper-backface-hidden,
 .swiper-slide {
   transform: none !important;
 } */
+

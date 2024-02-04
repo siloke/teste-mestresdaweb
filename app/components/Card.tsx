@@ -9,7 +9,7 @@ import { device } from "../breakpoints";
 const CardContainer = styled.div`
     background: linear-gradient(to left, rgb(255, 0, 0), rgba(128, 0, 0));
     display: flex;
-    margin: 0 100px;
+    // margin: 0 100px;
     width: fit-content;
     border-radius: var(--border-radius);
 
@@ -18,7 +18,8 @@ const CardContainer = styled.div`
     }
 `
 const CardExpand = styled(motion.div)`
-    width: 333px;
+    // width: 333px;
+    padding: 30px;
     height: 439px;
     border-radius: var(--border-radius);
     color: var(--white);
@@ -89,7 +90,7 @@ const Card = ({ }: PropsCard): JSX.Element => {
     }
 
     return (
-        <CardContainer>
+        <CardContainer >
             <CardImage>
                 {!isExpanded &&
                     <ImageDescription >

@@ -6,29 +6,25 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { useState } from "react";
-
 
 const Container = styled.div`
-  display: flex;
+  // display: flex;
   margin: 100px auto;
-  max-width: 1920px;
+  // max-width: 1280px;
+
 `
 
 export default function Home() {
-
+  
 
   return (
-    <Container>
-      <Swiper slidesPerView={4} navigation={true} modules={[Navigation]} loop={false} className="mySwiper">
-        <SwiperSlide><CardTest image="/heros/wanda-maximoff.jpg" /></SwiperSlide>
-        <SwiperSlide><CardTest image="/heros/wanda-maximoff.jpg" /></SwiperSlide>
-        <SwiperSlide><CardTest image="/background.jpg" /></SwiperSlide>
-        <SwiperSlide><CardTest image="/heros/spider-man.jpg" /></SwiperSlide>
-        <SwiperSlide><CardTest image="/heros/spider-man.jpg" /></SwiperSlide>
-
+    <Container className="teste">
+      <Swiper slidesPerView={3} spaceBetween={30} navigation={true} modules={[Navigation]} loop={false} className="mySwiper">
+        <SwiperSlide className="teste"><CardTest image="/heros/spider-man.jpg"/></SwiperSlide>
+        <SwiperSlide className="teste"><CardTest image="/heros/wanda-maximoff.jpg"/></SwiperSlide>
+        <SwiperSlide className="teste"><CardTest image="background.png"/></SwiperSlide>
+        <SwiperSlide className="teste"><CardTest image="background.png"/></SwiperSlide>
       </Swiper>
-      {/* <CardTest /> */}
 
     </Container>
   );
