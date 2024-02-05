@@ -5,12 +5,14 @@ import { motion } from "framer-motion";
 import YellowStar from "./YellowStar";
 import CloseIcon from "./CloseIcon";
 import { device } from "../breakpoints";
+import { Personagem } from "../data/personagens";
 
-const CardContainer = styled.div`
-    background: linear-gradient(to left, rgb(255, 0, 0), rgba(128, 0, 0));
+const CardContainer = styled.div<{ $isExpanded: boolean }>`
+    background: ${(props) => props.$isExpanded ? 'linear-gradient(to left, rgb(255, 0, 0), rgba(128, 0, 0))' : 'transparent'};
     display: flex;
+    justify-content: center;
     // margin: 0 100px;
-    width: fit-content;
+    width: 100%;
     border-radius: var(--border-radius);
 
     @media ${device.tablet} {
@@ -19,6 +21,7 @@ const CardContainer = styled.div`
 `
 const CardExpand = styled(motion.div)`
     // width: 333px;
+    width: 60%;
     padding: 30px;
     height: 439px;
     border-radius: var(--border-radius);
@@ -34,12 +37,12 @@ const ExpandWrapper = styled.div`
     gap: 1rem;
 `
 const CardImage = styled.div`
-    background-image: url('/heros/wanda-maximoff.jpg');
+    background-image: url('/static/wanda-maximoff.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 439px;
-    width: 289px;
+    width: 50%;
     border-radius: var(--border-radius);
     @media ${device.tablet} {
         width: 100%;
@@ -79,10 +82,10 @@ const DetailsText = styled.p`
 `
 
 interface PropsCard {
-    func?: any
+    item: Personagem
 }
 
-const Card = ({ }: PropsCard): JSX.Element => {
+const Card = ({ item }: PropsCard): JSX.Element => {
     const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
     const toggleExpand = (): void => {
@@ -90,12 +93,12 @@ const Card = ({ }: PropsCard): JSX.Element => {
     }
 
     return (
-        <CardContainer >
+        <CardContainer $isExpanded={isExpanded}>
             <CardImage>
                 {!isExpanded &&
                     <ImageDescription >
-                        <ImageTitle>Wanda Maximoff</ImageTitle>
-                        <ImageText>Wanda Maximoff foi sequestrada da Sérvia e trazida para a Montanha Wundagore, base do Alto Evolucionário. Durante anos, ela e seu irmão gêmeo, Pietro, acreditavam que eram filhos de um casal de ciganos.</ImageText>
+                        <ImageTitle>{item.name}</ImageTitle>
+                        <ImageText>{item.description}</ImageText>
                         <DetailsText onClick={toggleExpand}>ver detalhes</DetailsText>
                     </ImageDescription>
                 }
@@ -103,15 +106,8 @@ const Card = ({ }: PropsCard): JSX.Element => {
             {isExpanded &&
                 <CardExpand animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ ease: "linear", delay: 0.3 }}>
                     <ExpandWrapper >
-                        <ExpandTitle>Wanda Maximoff</ExpandTitle>
-                        <ExpandText>
-                            Aparições: <br />
-                            Vingadores - Era de Ultron <br />
-                            Capitão América - Guerra Civil <br />
-                            Vingadores - Guerra Infinita <br />
-                            Vingadores - Ultimato <br />
-                            WandaVision <br />
-                        </ExpandText>
+                        <ExpandTitle>{item.name}</ExpandTitle>
+                        <ExpandText>{item.description}</ExpandText>
                         <ExpandTitle>Avaliações dos Fãs</ExpandTitle>
                         <div>
                             <YellowStar />

@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { PersonagensList } from "./data/personagens";
+import ImageCard from "./components/ImageCard";
 
 const Container = styled.div`
   // display: flex;
@@ -15,17 +17,13 @@ const Container = styled.div`
 `
 
 export default function Home() {
-  
+
 
   return (
     <Container className="teste">
       <Swiper slidesPerView={3} spaceBetween={30} navigation={true} modules={[Navigation]} loop={false} className="mySwiper">
-        <SwiperSlide className="teste"><CardTest image="/heros/spider-man.jpg"/></SwiperSlide>
-        <SwiperSlide className="teste"><CardTest image="/heros/wanda-maximoff.jpg"/></SwiperSlide>
-        <SwiperSlide className="teste"><CardTest image="background.png"/></SwiperSlide>
-        <SwiperSlide className="teste"><CardTest image="background.png"/></SwiperSlide>
+        {PersonagensList.map((personagem) => <SwiperSlide><Card item={personagem} /></SwiperSlide>)}
       </Swiper>
-
     </Container>
   );
 }

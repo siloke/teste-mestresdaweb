@@ -5,11 +5,12 @@ import { device } from "../breakpoints";
 import styled from "styled-components";
 import YellowStar from "./YellowStar";
 import CloseIcon from "./CloseIcon";
+import { Personagem } from "../data/personagens";
 
 const CardContainer = styled.div`
     background: linear-gradient(to left, rgb(255, 0, 0), rgba(128, 0, 0));
     display: flex;
-    margin: 0 100px;
+    // margin: 0 100px;
     width: fit-content;
     border-radius: var(--border-radius);
 
@@ -18,7 +19,8 @@ const CardContainer = styled.div`
     }
 `
 const CardExpand = styled(motion.div)`
-    width: 333px;
+    // width: 333px;
+    padding: 30px;
     height: 439px;
     border-radius: var(--border-radius);
     color: var(--white);
@@ -93,10 +95,10 @@ const BackgroundExpand = styled.p`
 `
 
 interface PropsCard {
-    image?: string
+    item: Personagem
 }
 
-const CardTest = ({ image }: PropsCard): JSX.Element => {
+const CardTest = ({ item }: PropsCard): JSX.Element => {
     const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
     const toggleExpand = (): void => {
@@ -106,11 +108,11 @@ const CardTest = ({ image }: PropsCard): JSX.Element => {
     return (
         <>
             <CardContainer>
-                <CardImage $imageUrl={image}>
+                <CardImage $imageUrl={item.imageUrl}>
                     {!isExpanded &&
                         <ImageDescription >
-                            <ImageTitle>Wanda Maximoff</ImageTitle>
-                            <ImageText>Wanda Maximoff foi sequestrada da Sérvia e trazida para a Montanha Wundagore, base do Alto Evolucionário. Durante anos, ela e seu irmão gêmeo, Pietro, acreditavam que eram filhos de um casal de ciganos.</ImageText>
+                            <ImageTitle>{item.name}</ImageTitle>
+                            <ImageText>{item.description}</ImageText>
                             <DetailsText onClick={toggleExpand}>ver detalhes</DetailsText>
                         </ImageDescription>
                     }
@@ -119,26 +121,19 @@ const CardTest = ({ image }: PropsCard): JSX.Element => {
             {isExpanded &&
                 <BackgroundExpand onClick={toggleExpand}>
                     <CardContainer>
-                        <CardImage $imageUrl={image}>
+                        <CardImage $imageUrl={item.imageUrl}>
                             {!isExpanded &&
                                 <ImageDescription >
-                                    <ImageTitle>Wanda Maximoff</ImageTitle>
-                                    <ImageText>Wanda Maximoff foi sequestrada da Sérvia e trazida para a Montanha Wundagore, base do Alto Evolucionário. Durante anos, ela e seu irmão gêmeo, Pietro, acreditavam que eram filhos de um casal de ciganos.</ImageText>
+                                    <ImageTitle>{item.name}</ImageTitle>
+                                    <ImageText>{item.description}</ImageText>
                                     <DetailsText onClick={toggleExpand}>ver detalhes</DetailsText>
                                 </ImageDescription>
                             }
                         </CardImage>
                         <CardExpand animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ ease: "linear", delay: 0.3 }}>
                             <ExpandWrapper >
-                                <ExpandTitle>Wanda Maximoff</ExpandTitle>
-                                <ExpandText>
-                                    Aparições: <br />
-                                    Vingadores - Era de Ultron <br />
-                                    Capitão América - Guerra Civil <br />
-                                    Vingadores - Guerra Infinita <br />
-                                    Vingadores - Ultimato <br />
-                                    WandaVision <br />
-                                </ExpandText>
+                                <ExpandTitle>{item.name}</ExpandTitle>
+                                <ExpandText>{item.description}</ExpandText>
                                 <ExpandTitle>Avaliações dos Fãs</ExpandTitle>
                                 <div>
                                     <YellowStar />
