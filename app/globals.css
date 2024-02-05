@@ -13,9 +13,7 @@
 body {
   background-image: linear-gradient(to right, rgb(0, 0, 0), rgba(0, 0, 0, 0.369)),
     url('/static/background.jpg');
-  width: 100vw;
-  height: 100vh;
-  min-height: 100;
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -33,13 +31,12 @@ a {
   cursor: pointer;
 }
 
-.teste {
-  transform: none !important;
+.swiper-button-next, .swiper-button-prev {
+  color: var(--red) !important;
 }
 
-
-/* .swiper-wrapper,
-.swiper-backface-hidden,
-.swiper-slide {
-  transform: none !important;
-} */
+@media (max-width: 768px) {
+  .swiper-button-next, .swiper-button-prev {
+    visibility: hidden;
+  }
+}

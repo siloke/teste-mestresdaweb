@@ -11,40 +11,23 @@ const CardContainer = styled.div<{ $isExpanded: boolean }>`
     background: ${(props) => props.$isExpanded ? 'linear-gradient(to left, rgb(255, 0, 0), rgba(128, 0, 0))' : 'transparent'};
     display: flex;
     justify-content: center;
-    // margin: 0 100px;
     width: 100%;
     border-radius: var(--border-radius);
 
-    @media ${device.tablet} {
+    @media (max-width: ${device.laptop}px) {
         flex-direction: column;
     }
 `
-const CardExpand = styled(motion.div)`
-    // width: 333px;
-    width: 60%;
-    padding: 30px;
-    height: 439px;
-    border-radius: var(--border-radius);
-    color: var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-`
-const ExpandWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-`
-const CardImage = styled.div`
-    background-image: url('/static/wanda-maximoff.jpg');
+const CardImage = styled.div<{ $imageUrl?: string }>`
+    background-image: url(${(props) => props.$imageUrl ? props.$imageUrl : '/static/background.jpg'});
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 439px;
-    width: 50%;
+    // height: 439px;
+    height: 400px;
+    width: 60%;
     border-radius: var(--border-radius);
-    @media ${device.tablet} {
+    @media (max-width: ${device.laptop}px) {
         width: 100%;
     }
 `
@@ -61,23 +44,45 @@ const ImageDescription = styled(motion.div)`
     justify-content: space-between;
     padding: 1.4rem;
 `
+const CardExpand = styled(motion.div)`
+    // width: 333px;
+    width: 60%;
+    padding: 1.2rem;
+    height: 400px;
+    border-radius: var(--border-radius);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    @media (max-width: ${device.laptop}px) {
+        width: 100%;
+    }
+`
+const ExpandWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+`
+
 const ImageTitle = styled.h2`
-    font-size: 20px;
+    font-size: 1rem;
 `
 const ImageText = styled.p`
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 0.8rem;
+    // line-height: 20px;
     text-align: justify;
 `
 const ExpandTitle = styled.h2`
-    font-size: 30px;
+    font-size: 1.2rem;
 `
 const ExpandText = styled.p`
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 0.8rem;
+    // line-height: 22px;
 `
 const DetailsText = styled.p`
-    font-size: 20px;
+    font-size: 1rem;
     cursor: pointer;
 `
 
@@ -94,7 +99,7 @@ const Card = ({ item }: PropsCard): JSX.Element => {
 
     return (
         <CardContainer $isExpanded={isExpanded}>
-            <CardImage>
+            <CardImage $imageUrl={item.imageUrl}>
                 {!isExpanded &&
                     <ImageDescription >
                         <ImageTitle>{item.name}</ImageTitle>

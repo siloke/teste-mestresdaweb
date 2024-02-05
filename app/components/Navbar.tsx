@@ -8,7 +8,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const NavbarStyled = styled.div`
-    width: 100vw;
+    // height: 20vh;
+    width: 100%;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
     background-color: #000;
     box-shadow: 0px 4px 4px var(--red);
     padding: 1rem 0;
@@ -21,13 +25,14 @@ const ListStyled = styled.ul`
     gap: 3em;  
     list-style-type: none;
 
-    @media ${device.laptop} {
+    @media (max-width: ${device.laptop}px) {
         display: none;
     }
 `
 const Container = styled.div`
-    max-width: 90%;
-    margin: 0 auto;
+    max-width: 1440px;
+    width: 90%;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,7 +46,7 @@ const HamburguerMenu = styled.span`
     display: none;
     cursor: pointer;
     
-    @media ${device.laptop} {
+    @media (max-width: ${device.laptop}px) {
        display: block;
     }
 `
@@ -73,7 +78,7 @@ const Navbar = (): JSX.Element => {
                     <li><Link href="/filmes">Filmes</Link></li>
                     <li><Link href="/HQs">HQs</Link></li>
                     <Wrapper>
-                        <img src="/profile-picture.png" alt="" />
+                        <img src="/static/profile-picture.png" alt="" />
                         <li><Link href="/">Sair</Link></li>
                     </Wrapper>
                 </ListStyled>

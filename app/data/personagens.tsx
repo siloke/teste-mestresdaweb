@@ -22,13 +22,13 @@ export const PersonagensList: Personagem[] = [
         id: 3,
         name: "Thanos",
         description: "A lua Titã era governada por Mentor (A'Lars), quando então reinava paz e tecnologia. Mentor tinha dois filhos: Eros e Thanos.  Ao contrário do irmão, Thanos, era bem mais poderoso e almejava ainda mais.",
-        imageUrl: "/static/background.jpg"
+        imageUrl: "/static/thanos.jpg"
     },
     {
         id: 4,
         name: "Hulk",
         description: "Na história original dos quadrinhos, o Hulk é um selvagem e poderoso alter ego do Dr. Robert Bruce Banner, um cientista que foi atingido por raios gama enquanto salvava um adolescente durante o teste militar.",
-        imageUrl: "/static/background.jpg"
+        imageUrl: "/static/hulk.jpg"
     },
 
 ]

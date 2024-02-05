@@ -1,11 +1,13 @@
 interface Device {
-    mobile: string,
-    tablet: string,
-    laptop: string,
+    mobile: number,
+    tablet: number,
+    laptop: number,
+    laptopL: number,
 }
 
 export const device: Device = {
-    mobile: `(max-width: 425px)`,
-    tablet: `(max-width: 768px)`,
-    laptop: `(max-width: 1024px)`,
+    mobile: 425,
+    tablet: 768,
+    laptop: 1024,
+    laptopL: 1440,
 }
