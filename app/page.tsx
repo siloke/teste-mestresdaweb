@@ -1,6 +1,5 @@
 'use client'
 import styled from "styled-components";
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { device } from "./breakpoints";
 import Form from "./components/Form";
