@@ -18,8 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
         {children}
+        {/* <span className="sig">
+          Lucas Vidal<br />
+          Teste - Mestres da Web &#128640;
+        </span> */}
       </body>
     </html>
   );

@@ -1,11 +1,6 @@
-export interface Personagem {
-    id: number,
-    name: string,
-    description: string,
-    imageUrl: string,
-}
+import { CardInfo } from "./cardinfo";
 
-export const PersonagensList: Personagem[] = [
+export const PersonagensList: CardInfo[] = [
     {
         id: 1,
         name: "Homem-Aranha",

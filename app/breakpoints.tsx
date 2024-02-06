@@ -9,5 +9,5 @@ export const device: Device = {
     mobile: 425,
     tablet: 768,
     laptop: 1024,
-    laptopL: 1440,
+    laptopL: 1800,
 }

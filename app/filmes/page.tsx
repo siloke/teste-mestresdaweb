@@ -1,7 +1,24 @@
-const FilmesPage = () => {
-    return ( 
-        <h1>Filmes</h1>
+'use client'
+import styled from "styled-components";
+import Carousel from "../components/Carousel";
+import { FilmesList } from "../data/filmes";
+import Navbar from "../components/Navbar";
+
+
+const Container = styled.div`
+  margin: 100px auto;
+  max-width: 1920px;
+  padding: 0 1rem;
+
+`
+export default function FilmesPage() {
+
+    return (
+        <>
+            <Navbar />
+            <Container>
+                <Carousel lista={FilmesList} />
+            </Container>
+        </>
     );
 }
- 
-export default FilmesPage;

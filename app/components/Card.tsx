@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import YellowStar from "./YellowStar";
 import CloseIcon from "./CloseIcon";
 import { device } from "../breakpoints";
-import { Personagem } from "../data/personagens";
+import { CardInfo } from "../data/cardinfo";
 
 const CardContainer = styled.div<{ $isExpanded: boolean }>`
     background: ${(props) => props.$isExpanded ? 'linear-gradient(to left, rgb(255, 0, 0), rgba(128, 0, 0))' : 'transparent'};
@@ -23,12 +23,16 @@ const CardImage = styled.div<{ $imageUrl?: string }>`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    // height: 439px;
+    margin: auto;
     height: 400px;
     width: 60%;
     border-radius: var(--border-radius);
+    
     @media (max-width: ${device.laptop}px) {
         width: 100%;
+    }
+    @media (min-width: ${device.laptopL}px) {
+        width: 50%;
     }
 `
 const ImageDescription = styled(motion.div)`
@@ -45,7 +49,6 @@ const ImageDescription = styled(motion.div)`
     padding: 1.4rem;
 `
 const CardExpand = styled(motion.div)`
-    // width: 333px;
     width: 60%;
     padding: 1.2rem;
     height: 400px;
@@ -71,7 +74,6 @@ const ImageTitle = styled.h2`
 `
 const ImageText = styled.p`
     font-size: 0.8rem;
-    // line-height: 20px;
     text-align: justify;
 `
 const ExpandTitle = styled.h2`
@@ -79,7 +81,6 @@ const ExpandTitle = styled.h2`
 `
 const ExpandText = styled.p`
     font-size: 0.8rem;
-    // line-height: 22px;
 `
 const DetailsText = styled.p`
     font-size: 1rem;
@@ -87,7 +88,7 @@ const DetailsText = styled.p`
 `
 
 interface PropsCard {
-    item: Personagem
+    item: CardInfo
 }
 
 const Card = ({ item }: PropsCard): JSX.Element => {
@@ -109,7 +110,10 @@ const Card = ({ item }: PropsCard): JSX.Element => {
                 }
             </CardImage>
             {isExpanded &&
-                <CardExpand animate={{ opacity: 1 }} initial={{ opacity: 0 }} transition={{ ease: "linear", delay: 0.3 }}>
+                <CardExpand 
+                animate={{ opacity: 1 }}
+                initial={{ opacity: 0 }} 
+                transition={{ ease: "linear", delay: 0.3 }}>
                     <ExpandWrapper >
                         <ExpandTitle>{item.name}</ExpandTitle>
                         <ExpandText>{item.description}</ExpandText>

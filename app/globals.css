@@ -1,6 +1,8 @@
 :root {
   --red: rgb(255, 0, 0);
   --white: #FFFFFF;
+  --gray: #D1D1D6;
+  --gray-secondary: #84848D;
   --border-radius: 30px;
 }
 
@@ -31,12 +33,26 @@ a {
   cursor: pointer;
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   color: var(--red) !important;
 }
 
+input[type=text]:focus {
+  outline: none;
+}
+
+.sig {
+  color: rgba(177, 177, 177, 0.653);
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
+
 @media (max-width: 768px) {
-  .swiper-button-next, .swiper-button-prev {
+
+  .swiper-button-next,
+  .swiper-button-prev {
     visibility: hidden;
   }
 }
