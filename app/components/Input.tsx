@@ -8,6 +8,7 @@ const TextField = styled.input`
     color: var(--gray);
     font-size: 1rem;
     padding: 1.5rem;
+    margin-top: 1rem;
 `
 
 interface InputProps {

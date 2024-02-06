@@ -72,7 +72,7 @@ const Navbar = (): JSX.Element => {
     return (
         <NavbarStyled>
             <Container>
-                <Logo />
+                <Link href="/"><Logo /></Link>
                 <ListStyled>
                     <li><Link href="/personagens">Personagens</Link></li>
                     <li><Link href="/filmes">Filmes</Link></li>
@@ -91,6 +91,7 @@ const Navbar = (): JSX.Element => {
                     <MobileListItem><Link href="/personagens">Personagens</Link></MobileListItem>
                     <MobileListItem><Link href="/filmes">Filmes</Link></MobileListItem>
                     <MobileListItem><Link href="/HQs">HQs</Link></MobileListItem>
+                    <MobileListItem><Link href="/">Sair</Link></MobileListItem>
                 </MobileList>
             }
         </NavbarStyled>

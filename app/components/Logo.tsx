@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import localFont from 'next/font/local'
-import Link from "next/link";
+import localFont from 'next/font/local';
 
 const marvelFont = localFont({
     src: '../assets/fonts/MarvelRegular-Dj83.ttf',
@@ -18,7 +17,7 @@ const LogoStyled = styled.h1`
 const Logo = () => {
     return (
         <LogoStyled className={marvelFont.className}>
-            <Link href="/">MARVEL</Link>
+            MARVEL
         </LogoStyled>
     );
 }

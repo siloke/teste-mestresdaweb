@@ -9,6 +9,7 @@ const InputSubmitStyled = styled.input`
     font-size: 1rem;
     padding: 1.5rem;
     cursor: pointer;
+    margin: 1rem 0;
 `
 
 interface InputSubmitProps {
